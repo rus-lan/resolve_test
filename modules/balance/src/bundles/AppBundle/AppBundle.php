@@ -2,13 +2,13 @@
 
 namespace RusLan\ResolveTest\Balance\AppBundle;
 
-use TarsyClub\Framework\PrependExtension;
 use ReflectionClass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use TarsyClub\Framework\PrependExtension;
 
 class AppBundle extends Bundle
 {
-    private const ALIAS = 'abit_lk_app';
+    private const ALIAS = 'resolve_test_balance';
 
     /**
      * {@inheritdoc}

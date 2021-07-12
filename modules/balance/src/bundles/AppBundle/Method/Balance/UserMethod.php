@@ -28,11 +28,11 @@ class UserMethod implements JsonRpcMethodInterface, MethodWithValidatedParamsInt
         ] : [];
     }
 
-    public function getParamsConstraint() : Constraint
+    public function getParamsConstraint(): Constraint
     {
         return new Collection([
             'user_id' => new Required([
-                new Length(['min' => 1])
+                new Length(['min' => 1]),
             ]),
         ]);
     }

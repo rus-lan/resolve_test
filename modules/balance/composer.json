@@ -119,7 +119,6 @@
         ],
         "all:fix": [
             "@all:php:fix",
-            "@all:json:fix",
             "@all:yaml:fix"
         ],
         "all:json:fix": [
@@ -169,17 +168,11 @@
         ],
         "all:yaml:fix": [
             "@_fix:yaml -p resources/bundles/AppBundle/routes",
-            "@_fix:yaml -p resources/bundles/AppBundle/config/parameter",
-            "@_fix:yaml -p resources/bundles/ConfiguratorBundle/config/parameter",
-            "@_fix:yaml -p resources/bundles/TwigBundle/routes",
-            "@_fix:yaml -p resources/bundles/WebProfilerBundle/routes",
-            "@_fix:yaml -p resources/bundles/IsuBundle/config/parameter",
-            "@_fix:yaml -p resources/translations"
+            "@_fix:yaml -p resources/bundles/AppBundle/config/parameter"
         ],
         "all:yaml:lint": [
             "@console --quiet --no-debug l:yaml resources/bundles --parse-tags",
-            "@console --quiet --no-debug l:yaml resources/kernel",
-            "@console --quiet --no-debug l:yaml resources/translations"
+            "@console --quiet --no-debug l:yaml resources/kernel"
         ],
         "assets:install": [
             "@console assets:install"

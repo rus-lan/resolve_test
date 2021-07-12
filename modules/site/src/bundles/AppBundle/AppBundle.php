@@ -2,9 +2,9 @@
 
 namespace RusLan\ResolveTest\Site\AppBundle;
 
-use TarsyClub\Framework\PrependExtension;
 use ReflectionClass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use TarsyClub\Framework\PrependExtension;
 
 class AppBundle extends Bundle
 {

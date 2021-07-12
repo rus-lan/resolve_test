@@ -2,7 +2,6 @@
 
 namespace RusLan\ResolveTest\Site\AppBundle\Provider\History;
 
-
 use RusLan\ResolveTest\Site\AppBundle\Model\User\DTO\History;
 use RusLan\ResolveTest\Site\AppBundle\Model\User\DTO\User;
 use RusLan\ResolveTest\Site\AppBundle\Provider\Client\ClientProviderAwareInterface;
@@ -20,6 +19,7 @@ class HistoryProvider implements ClientProviderAwareInterface
     /**
      * @param User|null $user
      * @param int $limit
+     *
      * @return History[]
      */
     public function get(?User $user, int $limit): array
@@ -27,8 +27,8 @@ class HistoryProvider implements ClientProviderAwareInterface
         $data = [];
 
         foreach ($this->getClientProvider()->fetch('balance.history', 2, [
-            'limit' => $limit
-        ])['result'] ?? [] as $item){
+            'limit' => $limit,
+        ])['result'] ?? [] as $item) {
             $data[] = $this->create($item);
         }
 

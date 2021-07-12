@@ -3,10 +3,6 @@ parameters:
     framework.secret.default: 'APP_SECRET'
     framework.secret.value: '%env(string:default:framework.secret.default:APP_SECRET)%'
 
-    # graylog
-    graylog.host: 192.168.0.23
-    graylog.port: 12201
-
     # auth
     auth.access_token_lifetime: 86400
     auth.refresh_token_lifetime: 86400
@@ -33,5 +29,3 @@ parameters:
     resources_dir: '%kernel.project_dir%/resources'
     bundles_dir: '%resources_dir%/bundles'
     translations_dir: '%resources_dir%/translations'
-    validation_dir:
-        - '%resources_dir%/bundles/AppBundle/validation'

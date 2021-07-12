@@ -2,8 +2,8 @@
 
 namespace RusLan\ResolveTest\Balance\AppBundle\Model\Balance\Entity;
 
-use Gedmo\Timestampable\Traits\Timestampable as TimestampableTraits;
 use Gedmo\Timestampable\Timestampable;
+use Gedmo\Timestampable\Traits\Timestampable as TimestampableTraits;
 
 class History implements Timestampable
 {
@@ -24,11 +24,13 @@ class History implements Timestampable
 
     /**
      * @param int|null $id
+     *
      * @return static
      */
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -42,11 +44,13 @@ class History implements Timestampable
 
     /**
      * @param float|null $value
+     *
      * @return static
      */
     public function setValue(?float $value): self
     {
         $this->value = $value;
+
         return $this;
     }
 
@@ -60,11 +64,13 @@ class History implements Timestampable
 
     /**
      * @param float|null $balance
+     *
      * @return static
      */
     public function setBalance(?float $balance): self
     {
         $this->balance = $balance;
+
         return $this;
     }
 
@@ -78,11 +84,13 @@ class History implements Timestampable
 
     /**
      * @param int|null $userId
+     *
      * @return static
      */
     public function setUserId(?int $userId): self
     {
         $this->userId = $userId;
+
         return $this;
     }
 }

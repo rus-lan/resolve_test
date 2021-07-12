@@ -10,12 +10,12 @@ final class MethodEnum
     public const METHOD_USER_BALANCE = 'balance.userBalance';
     public const METHOD_HISTORY = 'balance.history';
 
-    protected static array $choices = [
+    private static array $choices = [
         self::METHOD_USER_BALANCE => self::METHOD_USER_BALANCE,
         self::METHOD_HISTORY => self::METHOD_HISTORY,
     ];
 
-    protected static array $dto = [
+    private static array $dto = [
         self::METHOD_USER_BALANCE => UserBalance::class,
         self::METHOD_HISTORY => History::class,
     ];
@@ -30,6 +30,7 @@ final class MethodEnum
 
     /**
      * @param string $name
+     *
      * @return string|null
      */
     public static function getDto(string $name): ?string

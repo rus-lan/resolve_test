@@ -2,7 +2,6 @@
 
 namespace RusLan\ResolveTest\Site\AppBundle\Provider\Client;
 
-
 use Symfony\Component\HttpClient\Exception\TransportException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -27,10 +26,10 @@ class ClientProvider
         try {
             $response = $this->client->request('POST', $this->url, [
                 'body' => json_encode([
-                    "jsonrpc" => "2.0",
-                    "method" => $method,
-                    "params" => $params,
-                    "id" => $id,
+                    'jsonrpc' => '2.0',
+                    'method' => $method,
+                    'params' => $params,
+                    'id' => $id,
                 ]),
             ]);
 

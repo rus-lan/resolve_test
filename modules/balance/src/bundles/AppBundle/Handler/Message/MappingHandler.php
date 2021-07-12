@@ -18,7 +18,7 @@ class MappingHandler implements JsonRpcMethodAwareInterface
     /**
      * @return JsonRpcMethodInterface[]
      */
-    public function getMappingList() : array
+    public function getMappingList(): array
     {
         return $this->mappingList;
     }

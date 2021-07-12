@@ -22,6 +22,7 @@ class HistoryProvider implements RepositoryAwareInterface
     /**
      * @param int|null $userId
      * @param int|null $limit
+     *
      * @return History[]
      */
     public function getHistory(?int $userId, ?int $limit): array

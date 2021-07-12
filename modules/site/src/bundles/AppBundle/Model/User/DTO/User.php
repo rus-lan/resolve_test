@@ -21,11 +21,13 @@ class User
 
     /**
      * @param int|null $id
+     *
      * @return static
      */
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 }

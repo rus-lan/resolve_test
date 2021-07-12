@@ -7,7 +7,6 @@ use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
 use Fixture\FlushEntityAwareInterface;
 use Fixture\FlushEntityAwareTrait;
-use Generator;
 use RusLan\ResolveTest\Balance\AppBundle\Doctrine\Registry\RegistryAwareInterface;
 use RusLan\ResolveTest\Balance\AppBundle\Doctrine\Registry\RegistryAwareTrait;
 use RusLan\ResolveTest\Balance\AppBundle\Faker\Generator\GeneratorAwareInterface;
@@ -59,13 +58,13 @@ class HistoryFixture extends Fixture implements
     {
         $result = [];
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 10; ++$i) {
             $userId = $i;
             $balance = $this->getGenerator()->numberBetween(1000, 100000);
             $waste = $this->getGenerator()->numberBetween(5, 10);
             $dateStart = $this->getGenerator()->dateTimeBetween('-5 months', '-2 months');
 
-            for ($z = 1; $z <= $waste; $z++) {
+            for ($z = 1; $z <= $waste; ++$z) {
                 $match = $this->getGenerator()->randomFloat(2, 100, 1000);
                 $result[] = (new History())
                     ->setValue($match)

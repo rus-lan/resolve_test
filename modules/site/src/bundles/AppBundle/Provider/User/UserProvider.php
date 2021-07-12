@@ -2,7 +2,6 @@
 
 namespace RusLan\ResolveTest\Site\AppBundle\Provider\User;
 
-
 use RusLan\ResolveTest\Site\AppBundle\Model\User\DTO\User;
 
 class UserProvider

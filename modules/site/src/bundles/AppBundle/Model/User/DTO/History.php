@@ -1,8 +1,6 @@
 <?php
 
-
 namespace RusLan\ResolveTest\Site\AppBundle\Model\User\DTO;
-
 
 class History
 {
@@ -19,9 +17,9 @@ class History
             ->setUserId($data['user_id'] ?? null)
         ;
         $dateTime = $data['created_at'] ?? null;
-        if(is_string($dateTime)){
+        if (is_string($dateTime)) {
             $this->setCreatedAt(new \DateTime($dateTime));
-        }elseif (is_array($dateTime) && $dateTime['date'] ?? null && $dateTime['timezone'] ?? null) {
+        } elseif (is_array($dateTime) && $dateTime['date'] ?? null && $dateTime['timezone'] ?? null) {
             $this->setCreatedAt(new \DateTime($dateTime['date'], new \DateTimeZone($dateTime['timezone'])));
         }
     }
@@ -36,11 +34,13 @@ class History
 
     /**
      * @param int|null $userId
+     *
      * @return static
      */
     public function setUserId(?int $userId): self
     {
         $this->userId = $userId;
+
         return $this;
     }
 
@@ -54,11 +54,13 @@ class History
 
     /**
      * @param int|null $id
+     *
      * @return static
      */
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -72,11 +74,13 @@ class History
 
     /**
      * @param float|null $value
+     *
      * @return static
      */
     public function setValue(?float $value): self
     {
         $this->value = $value;
+
         return $this;
     }
 
@@ -90,11 +94,13 @@ class History
 
     /**
      * @param \DateTime|null $createdAt
+     *
      * @return static
      */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 }

@@ -1,16 +1,16 @@
 main:
-    _title: Главная страница
+    _title: 'Главная страница'
     label:
+        balance:
+            _self: Баланс
+        history:
+            _self: 'История операций'
+            created_at: 'Дата обновления'
+            id: ID
+            value: Баланс
+        pagination:
+            limit: Лимит
         user:
             _self: Пользователь
             id: ID
             name: Имя
-        balance:
-            _self: Баланс
-        history:
-            _self: История операций
-            id: ID
-            value: Баланс
-            created_at: Дата обновления
-        pagination:
-            limit: Лимит

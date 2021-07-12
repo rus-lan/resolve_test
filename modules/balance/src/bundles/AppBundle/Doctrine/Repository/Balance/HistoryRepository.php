@@ -16,7 +16,7 @@ class HistoryRepository extends EntityRepository
             ->setMaxResults($limit)
         ;
 
-        if(is_int($userId)){
+        if (is_int($userId)) {
             $qb
                 ->where($selfAlias . '.userId = :userId')
                 ->setParameter('userId', $userId)

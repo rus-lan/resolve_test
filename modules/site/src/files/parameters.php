@@ -2,12 +2,12 @@
 
 namespace Ifmo\ResolveTest;
 
-use TarsyClub\YamlCsFix\YamlCsFixBundle\YamlCsFixBundle;
 use RusLan\ResolveTest\Site\AppBundle\AppBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
+use TarsyClub\YamlCsFix\YamlCsFixBundle\YamlCsFixBundle;
 
 function parameters(): array
 {

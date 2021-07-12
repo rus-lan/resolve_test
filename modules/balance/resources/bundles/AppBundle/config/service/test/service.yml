@@ -1,3 +1,0 @@
-imports:
-    - { resource: monolog.yml }
-    - { resource: ../dev/fixture.yml }

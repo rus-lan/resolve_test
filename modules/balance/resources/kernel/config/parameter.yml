@@ -3,10 +3,6 @@ parameters:
     framework.secret.default: 'APP_SECRET'
     framework.secret.value: '%env(string:default:framework.secret.default:APP_SECRET)%'
 
-    # graylog
-    graylog.host: 192.168.0.23
-    graylog.port: 12201
-
     # database
     database.host.default: '127.0.0.1'
     database.host.value: '%env(string:default:database.host.default:DATABASE_HOST)%'
