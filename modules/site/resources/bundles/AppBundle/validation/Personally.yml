@@ -1,0 +1,4 @@
+RusLan\ResolveTest\Site\AppBundle\Model\Personally\DTO\Personally:
+    properties:
+        citizenship:
+            - NotBlank: ~

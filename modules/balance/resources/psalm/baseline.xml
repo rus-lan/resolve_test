@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
+  <file src="src/bundles/AppBundle/Provider/User/UserProvider.php">
+    <UndefinedDocblockClass occurrences="2">
+      <code>$this-&gt;getRepository()</code>
+      <code>$this-&gt;getRepository()</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="src/bundles/AppBundle/Provider/User/UserTokenProvider.php">
+    <UndefinedDocblockClass occurrences="5">
+      <code>$this-&gt;getRepository()</code>
+      <code>$this-&gt;getRepository()</code>
+      <code>$this-&gt;getRepository()</code>
+      <code>$this-&gt;getRepository()</code>
+      <code>$this-&gt;getRepository()</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="vendor/internal/spl/src/lib/Doctrine/ORM/RepositoryAwareTrait.php">
+    <UndefinedDocblockClass occurrences="3">
+      <code>\Doctrine\Persistence\Common\ObjectRepository|\Doctrine\Persistence\ObjectRepository|null</code>
+      <code>\Doctrine\Persistence\Common\ObjectRepository|\Doctrine\Persistence\ObjectRepository|null</code>
+      <code>\Doctrine\Persistence\Common\ObjectRepository|\Doctrine\Persistence\ObjectRepository|null</code>
+    </UndefinedDocblockClass>
+  </file>
+</files>

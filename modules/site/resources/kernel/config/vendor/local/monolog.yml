@@ -1,0 +1,21 @@
+monolog:
+    channels: [console_command]
+    handlers:
+        main:
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            level: debug
+            channels:
+                - '!event'
+        console:
+            type: console
+            process_psr_3_messages: false
+            channels:
+                - '!event'
+                - '!console'
+        console_command:
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            level: debug
+            channels:
+                - 'console_command'

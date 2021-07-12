@@ -1,0 +1,19 @@
+services:
+    app.service.redis:
+        class: Redis
+        calls:
+            -   method: connect
+                arguments:
+                    - '%redis.host.value%'
+                    - '%redis.port.value%'
+    app.handler.redis.session:
+        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler
+        arguments:
+            - '@app.service.redis'
+            - { prefix: '%hostname%' }
+    app.handler.redis.doctrine:
+        class: Doctrine\Common\Cache\RedisCache
+        calls:
+            -   method: setRedis
+                arguments:
+                    - '@app.service.redis'

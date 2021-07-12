@@ -1,0 +1,10 @@
+homepage:
+    controller: 'app.controller.main::index'
+    methods: GET
+    path: /{userId}/{limit}
+    defaults:
+        userId: 1
+        limit: 50
+    requirements:
+        userId: \d+
+        limit: \d+

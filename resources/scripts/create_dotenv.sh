@@ -48,6 +48,7 @@ if [ ! -f "$ENV_FILE_BALANCE" ]; then
   {
       echo "APP_NAME=${APP_NAME}"
       echo "DATABASE_HOST=${COMPOSE_PROJECT_NAME}_db"
+      echo "DATABASE_NAME=${COMPOSE_PROJECT_NAME}"
   } >> $ENV_FILE_BALANCE
 fi
 

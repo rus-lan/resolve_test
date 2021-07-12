@@ -1,0 +1,5 @@
+imports:
+    - { resource: repository.yml }
+    - { resource: provider.yml }
+    - { resource: method.yml }
+    - { resource: handler.yml }

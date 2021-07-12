@@ -1,0 +1,224 @@
+{
+    "autoload": {
+        "files": [
+            "src/files/parameters.php"
+        ],
+        "psr-0": {
+            "Migration\\Version\\": "src/doctrine/Migration/Version"
+        },
+        "psr-4": {
+            "RusLan\\ResolveTest\\Site\\AppBundle\\": "src/bundles/AppBundle/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fixture\\": "src/doctrine/Fixture",
+            "Tests\\": "tests",
+            "Tests\\Helper\\": "tests/_support/Helper",
+            "Tests\\_generated\\": "tests/_support/_generated"
+        }
+    },
+    "config": {
+        "apcu-autoloader": true,
+        "cache-files-ttl": 7776000,
+        "discard-changes": true,
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "7.4.14"
+        },
+        "preferred-install": "dist"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "description": "test",
+    "extra": {
+        "scripts-dev": {
+            "post-install-cmd": [
+                "echo 'post-install-cmd';"
+            ]
+        },
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.2.*"
+        }
+    },
+    "license": "proprietary",
+    "name": "rus-lan/resolve-test",
+    "require": {
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "fzaninotto/faker": "^1.8",
+        "tarsy-club/framework": "^1.0",
+        "php": "^7.4",
+        "symfony/console": "^5.0",
+        "symfony/dotenv": "^5.0",
+        "symfony/expression-language": "^5.0",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/http-client": "^5.0",
+        "symfony/routing": "^5.0",
+        "symfony/serializer": "^5.0",
+        "symfony/templating": "^5.0",
+        "symfony/translation": "^5.0",
+        "symfony/twig-bundle": "^5.0",
+        "symfony/yaml": "^5.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.0",
+        "codeception/module-asserts": "^1.3",
+        "tarsy-club/json-cs-fix": "^1.0",
+        "tarsy-club/php-cs-fix": "^1.0",
+        "tarsy-club/yaml-cs-fix": "^1.0",
+        "neronmoon/scriptsdev": "^0.1.9",
+        "php-parallel-lint/php-parallel-lint": "^1.0",
+        "psalm/phar": "^3.12",
+        "symfony/debug-pack": "^1.0"
+    },
+    "scripts": {
+        "_composer:install": "composer install --no-interaction --ignore-platform-reqs --no-scripts",
+        "_composer:strict": "composer validate --no-interaction --no-plugins --strict --no-check-all --no-check-publish",
+        "_composer:update": "composer update --no-interaction --no-plugins --no-suggest --no-scripts",
+        "_composer:update:min": "@_composer:update --no-autoloader --ignore-platform-reqs --no-progress",
+        "_dev:test:composer:lock": "@_composer:update:min nothing --lock",
+        "_dev:test:composer:strict": "@_test:composer:strict",
+        "_fix:json": "json-cs-fix.sh",
+        "_fix:yaml": "@console tarsy-club:yaml-cs-fix",
+        "_lint:php": "parallel-lint",
+        "_psalm": "vendor/bin/psalm.phar",
+        "_test:composer:lock": "@_composer:update:min nothing --lock --no-dev",
+        "_test:composer:strict": "@_composer:strict",
+        "_test:env": "@cache:warmup --no-debug --no-interaction --no-optional-warmers",
+        "_test:platform": "composer check-platform-reqs --no-interaction --no-plugins",
+        "_test:route": "@console debug:router --no-debug --no-interaction --quiet",
+        "all:check": [
+            "@all:php:cs",
+            "@all:php:static"
+        ],
+        "all:composer:test": [
+            "@_dev:test:composer:lock",
+            "@_dev:test:composer:strict"
+        ],
+        "all:dev:install": [
+            "@_composer:install",
+            "@assets:install"
+        ],
+        "all:env:test": [
+            "@_test:env --env=dev",
+            "@_test:env --env=test",
+            "@_test:env --env=stage",
+            "@_test:env --env=master"
+        ],
+        "all:fix": [
+            "@all:php:fix",
+            "@all:json:fix",
+            "@all:yaml:fix"
+        ],
+        "all:json:fix": [
+            "@_fix:json",
+            "@_fix:json composer.lock"
+        ],
+        "all:lint": [
+            "@all:twig:lint",
+            "@all:php:lint",
+            "@all:yaml:lint"
+        ],
+        "all:php:cs": [
+            "@composer fix -d ${PWD}/vendor/tarsy-club/php-cs-fix -- --cache-file=${PWD}/var/phpcs/.php_cs-check-src.cache ${PWD}/src --dry-run",
+            "@composer fix -d ${PWD}/vendor/tarsy-club/php-cs-fix -- --cache-file=${PWD}/var/phpcs/.php_cs-check-src.cache ${PWD}/tests/unit --dry-run"
+        ],
+        "all:php:fix": [
+            "@composer fix -d ${PWD}/vendor/tarsy-club/php-cs-fix -- --cache-file=${PWD}/var/phpcs/.php_cs-fix-src.cache ${PWD}/src",
+            "@composer fix -d ${PWD}/vendor/tarsy-club/php-cs-fix -- --cache-file=${PWD}/var/phpcs/.php_cs-fix-src.cache ${PWD}/tests/unit"
+        ],
+        "all:php:lint": [
+            "@_lint:php -e php --no-progress --no-colors --blame src"
+        ],
+        "all:php:static": [
+            "@_psalm --config=resources/psalm/config.xml -m"
+        ],
+        "all:php:test": [
+            "@codecept:build",
+            "@codecept:unit"
+        ],
+        "all:platform:test": [
+            "@_test:platform"
+        ],
+        "all:route:test": [
+            "@_test:route --env=dev",
+            "@_test:route --env=test",
+            "@_test:route --env=stage",
+            "@_test:route --env=master"
+        ],
+        "all:test": [
+            "@all:env:test",
+            "@all:composer:test",
+            "@all:route:test",
+            "@all:php:test"
+        ],
+        "all:twig:lint": [
+            "@console --quiet lint:twig resources/bundles"
+        ],
+        "all:yaml:fix": [
+            "@_fix:yaml -p resources/bundles/AppBundle/routes",
+            "@_fix:yaml -p resources/bundles/AppBundle/config/parameter",
+            "@_fix:yaml -p resources/bundles/ConfiguratorBundle/config/parameter",
+            "@_fix:yaml -p resources/bundles/TwigBundle/routes",
+            "@_fix:yaml -p resources/bundles/WebProfilerBundle/routes",
+            "@_fix:yaml -p resources/bundles/IsuBundle/config/parameter",
+            "@_fix:yaml -p resources/translations"
+        ],
+        "all:yaml:lint": [
+            "@console --quiet --no-debug l:yaml resources/bundles --parse-tags",
+            "@console --quiet --no-debug l:yaml resources/kernel",
+            "@console --quiet --no-debug l:yaml resources/translations"
+        ],
+        "assets:install": [
+            "@console assets:install"
+        ],
+        "cache:clear": "@console cache:clear",
+        "cache:warmup": "@console cache:warmup",
+        "codecept": "codecept -c tests/codeception.yml",
+        "codecept:acceptance": "@codecept run acceptance --no-rebuild --no-colors",
+        "codecept:build": "@codecept build -q",
+        "codecept:clean": "@codecept clean",
+        "codecept:integration": "@codecept run integration --no-rebuild --no-colors",
+        "codecept:unit": "@codecept run unit --no-rebuild --no-colors",
+        "console": "src/console.php",
+        "data:fixture:load": [
+            "@console d:f:l -n"
+        ],
+        "data:migrations": [
+            "@console d:d:c --connection=default --if-not-exists",
+            "@console d:m:m --em=default --no-interaction --allow-no-migration -q"
+        ],
+        "data:migrations:diff": [
+            "@console c:w --no-debug --no-interaction --no-optional-warmers",
+            "@console d:m:diff --em=default --check-database-platform=false --allow-empty-diff --no-interaction --no-debug --formatted"
+        ],
+        "data:recreate": [
+            "@console doctrine:database:drop --connection=default --if-exists --force",
+            "@data:migrations",
+            "@data:fixture:load"
+        ],
+        "data:validate": "@console d:s:v",
+        "git:pre-commit": [
+            "@cache:clear",
+            "@all:lint",
+            "@all:test",
+            "@all:fix",
+            "@all:check"
+        ],
+        "post-create-project-cmd": "@post:create:project:cmd",
+        "post-install-cmd": "@post:install:cmd",
+        "post-update-cmd": "@post:install:cmd",
+        "post:install:cmd": [
+            "@cache:clear"
+        ],
+        "psalm:create": "@psalm:runner --set-baseline=resources/psalm/baseline.xml",
+        "psalm:run": "@psalm:runner",
+        "psalm:runner": "@_psalm --config=resources/psalm/config.xml --no-progress -m",
+        "psalm:update": "@psalm:runner --update-baseline"
+    },
+    "type": "project"
+}

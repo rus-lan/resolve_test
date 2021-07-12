@@ -1,0 +1,6 @@
+parameters:
+    app.bundle_name: AppBundle
+    app.resources_dir: '%bundles_dir%/%app.bundle_name%'
+
+    app.domen.balance: '%env(string:default::HOST_BALANCE)%'
+    app.url.balance: "http://%app.domen.balance%/api/v1/action"

@@ -1,0 +1,16 @@
+services:
+    app.provider.user:
+        class: RusLan\ResolveTest\Site\AppBundle\Provider\User\UserProvider
+    app.provider.balance:
+        class: RusLan\ResolveTest\Site\AppBundle\Provider\Balance\BalanceProvider
+        calls:
+            - [ setClientProvider, [ '@app.provider.client' ] ]
+    app.provider.history:
+        class: RusLan\ResolveTest\Site\AppBundle\Provider\History\HistoryProvider
+        calls:
+            - [ setClientProvider, [ '@app.provider.client' ] ]
+    app.provider.client:
+        class: RusLan\ResolveTest\Site\AppBundle\Provider\Client\ClientProvider
+        arguments:
+            - '@http_client'
+            - '%app.url.balance%'

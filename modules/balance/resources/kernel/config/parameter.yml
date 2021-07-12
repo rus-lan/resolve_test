@@ -1,0 +1,39 @@
+parameters:
+    # app
+    framework.secret.default: 'APP_SECRET'
+    framework.secret.value: '%env(string:default:framework.secret.default:APP_SECRET)%'
+
+    # graylog
+    graylog.host: 192.168.0.23
+    graylog.port: 12201
+
+    # database
+    database.host.default: '127.0.0.1'
+    database.host.value: '%env(string:default:database.host.default:DATABASE_HOST)%'
+    database.port.default: 3306
+    database.port.value: '%env(int:default:database.port.default:DATABASE_PORT)%'
+    database.dbname.value: '%env(string:default::DATABASE_NAME)%'
+    database.user.default: 'root'
+    database.user.value: '%env(string:default:database.user.default:DATABASE_USER)%'
+    database.password.default: 'rootroot'
+    database.password.value: '%env(string:default:database.password.default:DATABASE_PASSWORD)%'
+
+    # general
+    default_app_name: resolve_test
+    app_name: '%env(string:default:default_app_name:APP_NAME)%'
+    hostname: '%app_name%.%env(string:default::APP_ENV)%'
+    default_locale: ru
+    locale: '%default_locale%'
+    framework_router_strict_requirements: '%kernel.debug%'
+    framework_profiler_enabled: '%kernel.debug%'
+    framework_profiler_collect: '%kernel.debug%'
+    framework_profiler_only_exceptions: false
+    container.autowiring.strict_mode: true
+    container.dumper.inline_class_loader: true
+
+    # paths
+    public_dir: '%kernel.project_dir%/public'
+    fixtures_dir: '%kernel.project_dir%/src/doctrine/Fixture'
+    migrations_dir: '%kernel.project_dir%/src/doctrine/Migration'
+    resources_dir: '%kernel.project_dir%/resources'
+    bundles_dir: '%resources_dir%/bundles'

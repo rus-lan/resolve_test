@@ -1,0 +1,21 @@
+monolog:
+    channels: [console_command]
+    handlers:
+        graylog:
+            type: gelf
+            publisher:
+                hostname: '%graylog.host%'
+                port: '%graylog.port%'
+            level: error
+            formatter: app.monolog.formatter.graylog
+            channels:
+                - '!event'
+        console_command:
+            type: gelf
+            publisher:
+                hostname: '%graylog.host%'
+                port: '%graylog.port%'
+            level: notice
+            formatter: app.monolog.formatter.graylog
+            channels:
+                - 'console_command'

@@ -1,0 +1,5 @@
+services:
+    app.provider.balance.history:
+        class: RusLan\ResolveTest\Balance\AppBundle\Provider\Balance\HistoryProvider
+        calls:
+            - [ setRepository, [ '@app.repository.balance.history' ] ]

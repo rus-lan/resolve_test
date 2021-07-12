@@ -1,0 +1,42 @@
+RusLan\ResolveTest\Site\AppBundle\Model\User\DTO\RelativeForm:
+    properties:
+        relationshipDegree:
+            - NotBlank: ~
+        name:
+            - NotBlank: ~
+            - Length:
+                  min: 1
+                  max: 225
+        surname:
+            - NotBlank: ~
+            - Length:
+                min: 1
+                max: 225
+        patronymic:
+            - Length:
+                min: 0
+                max: 225
+        email:
+            - Email: ~
+            - Length:
+                min: 1
+                max: 225
+        phone:
+            - RusLan\ResolveTest\Site\AppBundle\Validator\Phone: ~
+            - NotBlank: ~
+        street:
+            - Length:
+                min: 0
+                max: 225
+        house:
+            - Length:
+                min: 0
+                max: 225
+        building:
+            - Length:
+                min: 0
+                max: 225
+        flat:
+            - Length:
+                min: 0
+                max: 225

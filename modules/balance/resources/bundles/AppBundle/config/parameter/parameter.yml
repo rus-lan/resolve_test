@@ -1,0 +1,3 @@
+parameters:
+    app.bundle_name: AppBundle
+    app.resources_dir: '%bundles_dir%/%app.bundle_name%'

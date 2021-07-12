@@ -1,0 +1,22 @@
+framework:
+    secret: '%framework.secret.value%'
+    default_locale: '%default_locale%'
+    csrf_protection:
+        enabled: false
+    php_errors:
+        log: true
+    translator:
+        default_path: '%translations_dir%'
+        fallbacks:
+            - '%default_locale%'
+    trusted_hosts: ~
+    fragments: ~
+    http_method_override: true
+    router:
+        strict_requirements: ~
+    serializer:
+        name_converter: 'serializer.name_converter.camel_case_to_snake_case'
+    profiler:
+        enabled: '%framework_profiler_enabled%'
+        collect: '%framework_router_strict_requirements%'
+        only_exceptions: '%framework_profiler_only_exceptions%'

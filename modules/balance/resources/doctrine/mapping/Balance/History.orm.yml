@@ -1,0 +1,32 @@
+RusLan\ResolveTest\Balance\AppBundle\Model\Balance\Entity\History:
+    type: entity
+    table: "balance_history"
+    repositoryClass: RusLan\ResolveTest\Balance\AppBundle\Doctrine\Repository\Balance\HistoryRepository
+    indexes:
+        user_index:
+            columns: [ userId ]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        value:
+            type: float
+            length: 255
+        balance:
+            type: float
+            length: 255
+        userId:
+            type: integer
+            length: 100
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update

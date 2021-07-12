@@ -1,0 +1,39 @@
+{% extends '@AppBundle/base.html.twig' %}
+
+{% block title %}
+    {{ 'main._title' | trans([], 'page') }}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {{ 'main.label.user._self' | trans([], 'page') }} <br>
+        {{ 'main.label.user.id' | trans([], 'page') }}: {{ user.id }} <br>
+        {% if balance is defined and balance is not null %}
+        {{ 'main.label.balance._self' | trans([], 'page') }}: {{ balance.value }}
+        {% endif %}
+    </p>
+
+    <hr>
+
+    <p>{{ 'main.label.history._self' | trans([], 'page') }}</p>
+    {% if balance is defined and history | length %}
+        {% for item in history %}
+            <p>
+                {{ 'main.label.history.id' | trans([], 'page') }}: {{ item.id }} <br>
+                {{ 'main.label.user._self' | trans([], 'page') }}: {{ item.userId }} <br>
+                {{ 'main.label.history.value' | trans([], 'page') }}: {{ item.value }} <br>
+                {% if item.createdAt is defined and item.createdAt %}
+                    {{ 'main.label.history.created_at' | trans([], 'page') }}: {{ item.createdAt | date('d.m.Y H:i') }}
+                {% else %}
+                    {{ 'main.label.history.created_at' | trans([], 'page') }}: -
+                {% endif %}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    <hr>
+
+    <p>{{ 'main.label.pagination.limit' | trans([], 'page') }}: {{ limit }}</p>
+
+{% endblock %}

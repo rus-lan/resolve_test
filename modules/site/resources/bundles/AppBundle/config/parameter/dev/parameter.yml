@@ -1,0 +1,3 @@
+parameters:
+    framework_profiler_only_exceptions: false
+    framework_router_strict_requirements: '%kernel.debug%'

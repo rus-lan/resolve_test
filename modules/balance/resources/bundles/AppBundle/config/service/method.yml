@@ -1,0 +1,14 @@
+services:
+    app.method.balance.user:
+        class: RusLan\ResolveTest\Balance\AppBundle\Method\Balance\UserMethod
+        calls:
+            - [ setHistoryProvider, [ '@app.provider.balance.history' ] ]
+        tags:
+            - { method: 'balance.userBalance', name: 'json_rpc_http_server.jsonrpc_method' }
+    app.method.balance.history:
+        class: RusLan\ResolveTest\Balance\AppBundle\Method\Balance\HistoryMethod
+        calls:
+            - [ setHistoryProvider, [ '@app.provider.balance.history' ] ]
+        tags:
+            - { method: 'balance.history', name: 'json_rpc_http_server.jsonrpc_method' }
+

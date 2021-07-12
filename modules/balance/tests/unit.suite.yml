@@ -1,0 +1,8 @@
+actor: UnitTester
+report_useless_tests: false
+disallow_test_output: false
+shuffle: true
+modules:
+    enabled:
+        - Asserts
+        - \Tests\Helper\Unit

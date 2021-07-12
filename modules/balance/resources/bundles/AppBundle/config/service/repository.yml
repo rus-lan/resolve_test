@@ -1,0 +1,5 @@
+services:
+    app.repository.balance.history:
+        class: RusLan\ResolveTest\Balance\AppBundle\Doctrine\Repository\Balance\HistoryRepository
+        factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
+        arguments: ['Balance:History']

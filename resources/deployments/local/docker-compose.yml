@@ -32,6 +32,9 @@ services:
         GID: "$GID"
         COMPOSER_VERSION: ${COMPOSER_VERSION}
     restart: unless-stopped
+    environment:
+      COMPOSER_MEMORY_LIMIT: -1
+      COMPOSER_PROCESS_TIMEOUT: 3000
     volumes:
       - ../../../modules/site:/app:cached
       - ${HOME}/.ssh:${HOME}/.ssh:ro
@@ -58,6 +61,9 @@ services:
     restart: unless-stopped
     depends_on:
       - db
+    environment:
+      COMPOSER_MEMORY_LIMIT: -1
+      COMPOSER_PROCESS_TIMEOUT: 3000
     volumes:
       - ../../../modules/balance:/app:cached
       - ${HOME}/.ssh:${HOME}/.ssh:ro

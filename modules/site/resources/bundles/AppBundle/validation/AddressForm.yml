@@ -1,0 +1,44 @@
+RusLan\ResolveTest\Site\AppBundle\Model\User\DTO\AddressForm:
+    properties:
+        region:
+            - NotBlank:
+                groups: [notSpecifiedManually]
+        area:
+            - NotBlank:
+                groups: [notSpecifiedManually]
+        city:
+            - NotBlank:
+                groups: [notSpecifiedManually]
+        locality:
+            - NotBlank:
+                groups: [notSpecifiedManually]
+        street:
+            - NotBlank:
+                groups: [notSpecifiedManually]
+        house:
+            - NotBlank:
+                groups: [notSpecifiedManually]
+            - Length:
+                min: 1
+                max: 257
+                groups: [notSpecifiedManually]
+        building:
+            - Length:
+                min: 0
+                max: 257
+                groups: [notSpecifiedManually]
+        flat:
+            - Length:
+                min: 0
+                max: 257
+                groups: [notSpecifiedManually]
+        postcode:
+            - NotBlank: ~
+            - Length:
+                min: 6
+                max: 6
+                groups: [notSpecifiedManually]
+        registrationAddress:
+            - NotBlank:
+                groups: [specifiedManually]
+

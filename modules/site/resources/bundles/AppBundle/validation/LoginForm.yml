@@ -1,0 +1,12 @@
+RusLan\ResolveTest\Site\AppBundle\Model\User\DTO\LoginForm:
+    properties:
+        username:
+            - NotBlank: ~
+            - Email: ~
+            - Length:
+                max: 191
+        password:
+            - NotBlank: ~
+            - Length:
+                min: 8
+                max: 255

@@ -1,0 +1,14 @@
+RusLan\ResolveTest\Site\AppBundle\Model\User\DTO\RegistrationForm:
+    properties:
+        username:
+            - NotBlank: { groups: [ reset_password ]}
+            - Email: { groups: [ reset_password ]}
+            - Length:
+                  max: 100
+                  groups: [ reset_password ]
+        password:
+            - NotBlank: { groups: [ change_password ]}
+            - Length:
+                  min: 8
+                  max: 255
+                  groups: [ change_password ]

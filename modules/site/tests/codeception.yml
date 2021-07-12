@@ -1,0 +1,23 @@
+namespace: Tests
+shuffle: true
+report_useless_tests: false
+disallow_test_output: false
+actor_suffix: Tester
+coverage:
+    enabled: '%CODECEPTION_COVERAGE_ENABLED%'
+    include:
+        - ../src/bundles/*
+    exclude:
+        - ../var/cache/*
+paths:
+    tests: ./
+    output: _output
+    data: _data
+    support: _support
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+params:
+    - .env
+settings:
+    memory_limit: 2048M

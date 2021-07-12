@@ -1,0 +1,6 @@
+doctrine_migrations:
+    dir_name: '%migrations_dir%/Version'
+    custom_template: '%migrations_dir%/migration.php.php-template'
+    namespace: Migration\Version
+    organize_migrations: BY_YEAR_AND_MONTH
+    all_or_nothing: true

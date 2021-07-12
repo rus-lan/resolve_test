@@ -1,0 +1,8 @@
+services:
+    app.monolog.formatter.graylog:
+        class: TarsyClub\ContainerBundle\Monolog\Formatter\MessageFormatter
+        arguments:
+            - '@monolog.formatter.gelf_message'
+        calls:
+            - [setAppName, ['%app_name%']]
+            - [setHostName, ['@=service("request_stack").getMasterRequest() ? service("request_stack").getMasterRequest().getHost() : parameter("hostname")']]

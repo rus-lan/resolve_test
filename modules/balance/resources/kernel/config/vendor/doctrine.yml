@@ -1,0 +1,25 @@
+doctrine:
+    dbal:
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
+
+        host: '%database.host.value%'
+        port: '%database.port.value%'
+        dbname: '%database.dbname.value%'
+        user: '%database.user.value%'
+        password: '%database.password.value%'
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: false
+        mappings:
+            Balance:
+                is_bundle: false
+                type: yml
+                dir: '%kernel.project_dir%/resources/doctrine/mapping/Balance'
+                prefix: 'RusLan\ResolveTest\Balance\AppBundle\Model\Balance\Entity'
+                alias: Balance

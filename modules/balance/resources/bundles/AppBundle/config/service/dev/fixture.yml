@@ -1,0 +1,16 @@
+services:
+    Faker\Factory:
+        public: true
+
+    app.fixture.generator:
+        arguments:
+            - ru_RU
+        class: Faker\Generator
+        factory: Faker\Factory::create
+
+    Fixture\Balance\HistoryFixture:
+        calls:
+            - [ setRegistry, [ '@doctrine' ] ]
+            - [ setGenerator, ['@app.fixture.generator']]
+        tags:
+            - 'doctrine.fixture.orm'

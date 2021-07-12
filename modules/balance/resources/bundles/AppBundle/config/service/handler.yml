@@ -1,0 +1,4 @@
+services:
+    app.handler.mapping:
+        class: RusLan\ResolveTest\Balance\AppBundle\Handler\Mapping\MappingHandler
+        tags: [ 'json_rpc_http_server.method_aware' ]

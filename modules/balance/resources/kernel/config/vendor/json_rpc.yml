@@ -1,0 +1,4 @@
+json_rpc_http_server:
+    endpoint: "/api/v1/action"
+json_rpc_http_server_doc:
+    endpoint: "/api/v1/redoc"

@@ -1,0 +1,10 @@
+services:
+    app.controller.main:
+        class: RusLan\ResolveTest\Site\AppBundle\Controller\MainController
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setUserProvider, ['@app.provider.user']]
+            - [setBalanceProvider, ['@app.provider.balance']]
+            - [setHistoryProvider, ['@app.provider.history']]
+        tags:
+            - controller.service_arguments
